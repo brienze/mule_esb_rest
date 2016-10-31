@@ -24,7 +24,7 @@ http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/a
         <apikit:flow-mapping resource="/GoldMaximum" action="get" content-type="application/json" flow-ref="get:/GoldMaximum:accenture_test"/>
         <apikit:flow-mapping resource="/SilverMaximum" action="get" content-type="application/json" flow-ref="get:/SilverMaximum:accenture_test"/>
         <apikit:flow-mapping resource="/BronzeMaximum" action="get" content-type="application/json" flow-ref="get:/BronzeMaximum:accenture_test"/>
-        <apikit:flow-mapping resource="/MedalMaximum" action="get" content-type="application/json" flow-ref="get:/Artist:accenture_test"/>
+        <apikit:flow-mapping resource="/MedalMaximum" action="get" content-type="application/json" flow-ref="get:/MedalMaximum:accenture_test"/>
     </apikit:config>
     <http:listener-config name="HTTP_Listener_Configuration2" host="localhost" port="8083" doc:name="HTTP Listener Configuration"/>
     <apikit:mapping-exception-strategy name="acme-apiKitGlobalExceptionMapping">
