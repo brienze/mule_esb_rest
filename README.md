@@ -63,31 +63,6 @@ Obs:
   }
 ]
 
-- http://localhost:8083/accenture/GoldMaximum
-- Response:
-[
-  {
-    "country": "United States",
-    "medals": 46
-  },
-  {
-    "country": "Great Britain",
-    "medals": 27
-  },
-  {
-    "country": "China",
-    "medals": 26
-  },
-  {
-    "country": "Russian Federation",
-    "medals": 19
-  },
-  {
-    "country": "Germany",
-    "medals": 17
-  }
-]
-
 - http://localhost:8083/accenture/BronzeMaximum
 - Reponse:
 [
