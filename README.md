@@ -38,7 +38,7 @@ Obs:
 
 ** Exemplos de execução **
 
-- http://localhost:8083/accenture/GoldMaximum
+- ** http://localhost:8083/accenture/GoldMaximum **
 - Response:
 [
   {
@@ -63,7 +63,7 @@ Obs:
   }
 ]
 
-- http://localhost:8083/accenture/BronzeMaximum
+- ** http://localhost:8083/accenture/BronzeMaximum **
 - Reponse:
 [
   {
@@ -88,7 +88,7 @@ Obs:
   }
 ]
 
-- http://localhost:8083/accenture/SilverMaximum
+- ** http://localhost:8083/accenture/SilverMaximum **
 - Response:
 [
   {
@@ -158,8 +158,8 @@ Obs:
   }
 ]
 
-- http://localhost:8083/accenture/Movies
-- Response:
+- ** http://localhost:8083/accenture/Movies **
+  Response:
 [
   {
     "title": "Jack Reacher: Never Go Back",
@@ -223,8 +223,8 @@ Obs:
   }
 ]
 
-- http://localhost:8083/accenture/Artist?artist=acdc&track=Highway+to+Hell
-- Response:
+- ** http://localhost:8083/accenture/Artist?artist=acdc&track=Highway+to+Hell **
+  Response:
 
 {
   "Artist": [
@@ -372,8 +372,8 @@ Obs:
   ]
 }
 
-- http://localhost:8083/accenture/Artist?artist=rush
-- Response:
+** http://localhost:8083/accenture/Artist?artist=rush**
+  Response:
 
 {
   "artist": {
