@@ -1,0 +1,32 @@
+Last.fm
+
+Application name	Mule testing
+API key	0e1d44ec9c3257468c003dde772672df
+Shared secret	1cdec5afcb3849f8455dfe0cfef526d6
+Registered to	edubrienze
+
+--Top tracks
+http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=cher&api_key=0e1d44ec9c3257468c003dde772672df&format=json
+
+--Detalhes do artista
+http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=Cher&api_key=0e1d44ec9c3257468c003dde772672df&format=json
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+MovieDB
+
+http://www.last.fm/api/rest
+http://www.last.fm/api/webauth
+
+
+apikey: 81a9e0fb8884f38ce30873ad7f5404ca
+API Read Access Token (v4 auth)
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MWE5ZTBmYjg4ODRmMzhjZTMwODczYWQ3ZjU0MDRjYSIsInN1YiI6IjU4MTI2NGQ5YzNhMzY4Nzk4ZDAxODczYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.e27Q58_9X7Hc52iWrNrj-TEbPs35UCjyS4bM0FwU6mI
+
+Example API Request
+
+https://api.themoviedb.org/3/movie/550?api_key=81a9e0fb8884f38ce30873ad7f5404ca
+
+https://www.themoviedb.org/account/brienze/api
+https://www.themoviedb.org/documentation/api/discover
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------

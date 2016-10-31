@@ -1,0 +1,78 @@
+#%RAML 0.8
+title: API for Accenture Test
+version: v1.0
+baseUri: http://remote_address/
+
+/GoldMaximum:
+  displayName: Gold Maximum
+  get:    
+    description: Gets 5 countries which got greatest number of gold medals
+    body:
+      application/json: 
+    responses:
+          200:
+            body:
+              application/json:
+/BronzeMaximum:
+  displayName: Bronze Maximum
+  get:
+    description: Gets 5 countries which got greatest number of bronze medals
+    body:
+      application/json: 
+    responses:
+          200:
+            body:
+              application/json:
+  
+/SilverMaximum:
+  displayName: Silver Maximum
+  get:
+    description: Gets 5 countries which got greatest number of silver medals
+    body:
+      application/json: 
+    responses:
+          200:
+            body:
+              application/json:
+  
+/MedalMaximum:
+  displayName: Medal Maximum
+  get:
+    description: Gets 10 countries which got greatest number of medals
+    body:
+      application/json: 
+    responses:
+          200:
+            body:
+              application/json:
+/Movies:
+  displayName: Movies
+  get:
+    description: Gets release, date, title, language, poster of the most 10 popular movies from themoviedb.com
+    body:
+      application/json: 
+    responses:
+          200:
+            body:
+              application/json:
+/Artist:
+  displayName: Artist
+  get:
+    description: Gets artist details and when 'track' parameter is given, get track details too.
+    body:
+      application/json: 
+    responses:
+          200:
+            body:
+              application/json: 
+    queryParameters:
+        artist:
+          description: Provide a valid artist name
+          required: true
+          type: string
+          example: "acdc"
+        track:
+          description: If given, information of the track will be showed
+          required: false
+          type: string
+          example: "Highway to Hell"      

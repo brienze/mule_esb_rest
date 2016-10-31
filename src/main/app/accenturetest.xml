@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:jersey="http://www.mulesoft.org/schema/mule/jersey" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/jersey http://www.mulesoft.org/schema/mule/jersey/current/mule-jersey.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="8082" doc:name="HTTP Listener Configuration"/>
+    <http:request-config name="HTTP_Request_Configuration" host="api.themoviedb.org" port="80"  doc:name="HTTP Request Configuration"/>
+    <file:connector name="File" writeToDirectory="/tmp" autoDelete="true" streaming="true" validateConnections="true" doc:name="File"/>
+    <http:request-config name="HTTP_Request_Configuration1" host="olympic2016.herokuapp.com" port="80" doc:name="HTTP Request Configuration"/>
+    <http:listener-config name="HTTP_Listener_Configuration1" host="localhost" port="8081" doc:name="HTTP Listener Configuration"/>
+    <http:request-config name="HTTP_Request_Configuration2" host="ws.audioscrobbler.com" port="80" doc:name="HTTP Request Configuration"/>
+    <apikit:config name="Router" raml="accenture_test.raml" consoleEnabled="true" consolePath="console" doc:name="Router">
+        <apikit:flow-mapping resource="/GoldMaximum" action="get" content-type="application/json" flow-ref="get:/GoldMaximum:accenture_test"/>
+        <apikit:flow-mapping resource="/SilverMaximum" action="get" content-type="application/json" flow-ref="get:/SilverMaximum:accenture_test"/>
+        <apikit:flow-mapping resource="/BronzeMaximum" action="get" content-type="application/json" flow-ref="get:/BronzeMaximum:accenture_test"/>
+        <apikit:flow-mapping resource="/MedalMaximum" action="get" content-type="application/json" flow-ref="get:/MedalMaximum:accenture_test"/>
+        <apikit:flow-mapping resource="/Movies" action="get" content-type="application/json" flow-ref="get:/Movies:accenture_test"/>
+        <apikit:flow-mapping resource="/Artist" action="get" content-type="application/json" flow-ref="get:/Artist:accenture_test"/>
+    </apikit:config>
+    <http:listener-config name="HTTP_Listener_Configuration2" host="localhost" port="8083" doc:name="HTTP Listener Configuration"/>
+    <apikit:mapping-exception-strategy name="acme-apiKitGlobalExceptionMapping">
+        <apikit:mapping statusCode="404">
+            <apikit:exception value="org.mule.module.apikit.exception.NotFoundException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Resource not found&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="405">
+            <apikit:exception value="org.mule.module.apikit.exception.MethodNotAllowedException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Method not allowed&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="415">
+            <apikit:exception value="org.mule.module.apikit.exception.UnsupportedMediaTypeException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Unsupported media type&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="406">
+            <apikit:exception value="org.mule.module.apikit.exception.NotAcceptableException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Not acceptable&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="400">
+            <apikit:exception value="org.mule.module.apikit.exception.BadRequestException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Bad request&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+    </apikit:mapping-exception-strategy>
+    
+    
+
+    <flow name="get:/GoldMaximum:accenture_test">
+        <http:request config-ref="HTTP_Request_Configuration1" path="api/medal_by_country" method="GET" doc:name="HTTP"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+
+payload.results
+]]></dw:set-payload>
+        </dw:transform-message>
+        <json:json-to-object-transformer returnClass="accenturetest.model.Country[]" mimeType="application/json" doc:name="JSON to Map"/>
+        <component class="accenturetest.component.MaximumGold" doc:name="Java"/>
+        
+       
+
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+
+payload map {
+country:$.country_name,
+medals:$.gold_count
+}
+]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+    <flow name="get:/SilverMaximum:accenture_test">
+        <http:request config-ref="HTTP_Request_Configuration1" path="api/medal_by_country" method="GET" doc:name="HTTP"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+
+payload.results
+]]></dw:set-payload>
+        </dw:transform-message>
+        <json:json-to-object-transformer returnClass="accenturetest.model.Country[]" mimeType="application/json" doc:name="JSON to Map"/>
+        <component class="accenturetest.component.MaximumSilver" doc:name="Java"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+
+payload map {
+country:$.country_name,
+medals:$.silver_count
+}
+]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+    <flow name="get:/BronzeMaximum:accenture_test">
+        <http:request config-ref="HTTP_Request_Configuration1" path="api/medal_by_country" method="GET" doc:name="HTTP"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+
+payload.results
+]]></dw:set-payload>
+        </dw:transform-message>
+        <json:json-to-object-transformer returnClass="accenturetest.model.Country[]" mimeType="application/json" doc:name="JSON to Map"/>
+        <component class="accenturetest.component.MaximumBronze" doc:name="Java"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+
+payload map {
+country:$.country_name,
+medals:$.bronze_count
+}
+]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+    <flow name="get:/MedalMaximum:accenture_test">
+        <http:request config-ref="HTTP_Request_Configuration1" path="api/medal_by_country" method="GET" doc:name="HTTP"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+
+payload.results
+]]></dw:set-payload>
+        </dw:transform-message>
+        <json:json-to-object-transformer returnClass="accenturetest.model.Country[]" mimeType="application/json" doc:name="JSON to Map"/>
+        <component class="accenturetest.component.MaximumMedals" doc:name="Java"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+payload map {
+country:$.country_name,
+medals:$.medal_count
+}]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+    <flow name="get:/Movies:accenture_test">
+        <http:request config-ref="HTTP_Request_Configuration" path="/3/discover/movie?sort_by=popularity.desc&amp;api_key=81a9e0fb8884f38ce30873ad7f5404ca" method="GET" doc:name="HTTP"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+
+payload.results[0..9]  map {
+title:$.title,
+release_date:$.release_date,
+language:$.original_language,
+poster:$.poster_path
+
+}]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+    <flow name="get:/Artist:accenture_test">
+        <set-variable variableName="artist" value="#[message.inboundProperties.'http.query.params'.artist]" doc:name="Set Artist to Variable"/>
+        <set-variable variableName="track" value="#[message.inboundProperties.'http.query.params'.track]" doc:name="Set Track to Variable"/>
+        <logger message="Artista: #[message.inboundProperties.'http.query.params'.artist]" level="INFO" doc:name="Logger"/>
+        <http:request config-ref="HTTP_Request_Configuration2" path="/2.0/?method=artist.getinfo&amp;api_key=0e1d44ec9c3257468c003dde772672df&amp;format=json" method="GET" doc:name="HTTP - Getting Artist">
+            <http:request-builder>
+                <http:query-param paramName="artist" value="#[message.inboundProperties.'http.query.params'.artist]"/>
+            </http:request-builder>
+        </http:request>
+        <logger message="Payload Response: #[payload]" level="INFO" doc:name="Logger"/>
+        <set-variable variableName="artistPayload" value="#[message.payloadAs(java.lang.String)]" doc:name="Set artist info to Variable" mimeType="application/json"/>
+        <choice doc:name="Choice">
+            <when expression="#[flowVars['track'] != null]">
+                <logger message="Com track - Payload: #[flowVars.artistPayload]" level="INFO" doc:name="Logger"/>
+                <processor-chain doc:name="Processor Chain">
+	                <http:request config-ref="HTTP_Request_Configuration2" path="/2.0/?method=track.getinfo&amp;api_key=0e1d44ec9c3257468c003dde772672df&amp;format=json" method="GET" doc:name="HTTP - Getting Track">
+	                    <http:request-builder>
+                            <http:query-param paramName="artist" value="#[flowVars['artist']]"/>
+                            <http:query-param paramName="track" value="#[flowVars['track']]"/>
+	                    </http:request-builder>
+	                </http:request>
+                    <set-variable variableName="trackInfo" value="#[message.payloadAs(java.lang.String)]" doc:name="Variable"/>
+                    <logger message="Resultado da Track- Payload: #[flowVars.trackInfo]" level="INFO" doc:name="Logger"/>
+	                <set-payload value="#[[flowVars['artistPayload'], payload]]" doc:name="Merge Artist and Track"/>
+	                <logger message="Efetuado merge do payload de Artista e Track. Preparado para efetuar merge do JSON" level="INFO" doc:name="Logger"/>
+        		</processor-chain>
+        		
+                <json:json-to-object-transformer  doc:name="JSON to Object"/>
+                <logger message="Preparando para ultima transformacao" level="INFO" doc:name="Logger"/>
+                <dw:transform-message doc:name="Transform Message">
+                    <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+using (
+    artist = payload[0],
+    infoTrack = payload[1]
+)
+	Artist : artist map {
+		name : $.name,
+		url : $.url,
+		tags:$.tags[0],
+		similar:$.tags[0],
+		image:$.image[0],
+		bio:$.bio,
+		track:infoTrack.track
+	}
+	
+]]></dw:set-payload>
+                </dw:transform-message>
+            </when>
+            <otherwise>
+                <logger message="Sem track" level="INFO" doc:name="Logger"/>
+            </otherwise>
+        </choice>
+    </flow>
+    <flow name="accenturetestFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration2" path="/accenture/*" doc:name="HTTP"/>
+        <apikit:router config-ref="Router" doc:name="APIkit Router"/>
+    </flow>
+</mule>

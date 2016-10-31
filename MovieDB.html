@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.js"></script>
+
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+    
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    
+  <style type="text/css">
+    [ng-click] {
+  cursor: pointer;
+}
+
+  </style>
+
+  <title></title>
+
+  
+
+<script type='text/javascript'>//<![CDATA[
+
+
+var app = angular.module('app', ['ui.bootstrap']);
+
+app.controller('ModalInstanceCtrl', function($scope, $modalInstance, customer) {
+  $scope.customer = customer;
+
+});
+
+app.controller('CustomerController', function($scope, $http, $timeout, $modal, $log) {
+  $scope.page = 0;
+
+  function loadPage(page) {
+	   $http.get("http://localhost:8081", {
+        
+      })
+      .then(function(response) {
+        console.log(response);
+        $scope.results = response.data.results;
+      });
+  }
+
+  loadPage(1);
+  // MODAL WINDOW
+  $scope.open = function(_customer) {
+
+    var modalInstance = $modal.open({
+      controller: "ModalInstanceCtrl",
+      templateUrl: 'myModalContent.html',
+      resolve: {
+        customer: function() {
+          return _customer;
+        }
+      }
+    });
+
+  };
+
+  $scope.next = function() {
+    loadPage(++$scope.page);
+  }
+  $scope.prev = function() {
+    if ($scope.page - 1 > 0)
+      loadPage(--$scope.page);
+  }
+});
+
+</script>
+</head>
+<body>
+
+  <div ng-app="app">
+
+  <div ng-controller="CustomerController">
+    <div class="container">
+      <div class="row">
+     
+        <div ng-repeat="items in results">
+          <img ng-click="open(items)" class="col-lg-3 col-md-3 col-sm-3 col-xs-12 thumbnail" ng-src="http://image.tmdb.org/t/p/w342/{{items.poster_path}}">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MODAL WINDOW-->
+  <script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+      <h3>Movie Title: {{ customer.title }}</h3>
+    </div>
+    <div class="modal-body">
+      Movie Details
+      <pre>customer = {{customer|json}}</pre>
+    </div>
+    <div class="modal-footer">
+
+    </div>
+  </script>
+</div>
+
+</body>
+</html>
