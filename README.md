@@ -159,7 +159,7 @@ Obs:
 ]
 
 - **http://localhost:8083/accenture/Movies**
-  Response:
+- Response:
 [
   {
     "title": "Jack Reacher: Never Go Back",
@@ -224,7 +224,7 @@ Obs:
 ]
 
 - **http://localhost:8083/accenture/Artist?artist=acdc&track=Highway+to+Hell**
-  Response:
+- Response:
 
 {
   "Artist": [
@@ -373,7 +373,7 @@ Obs:
 }
 
 **http://localhost:8083/accenture/Artist?artist=rush**
-  Response:
+- Response:
 
 {
   "artist": {
