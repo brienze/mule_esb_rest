@@ -9,9 +9,9 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.js"></script>
 
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
-    
+
       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    
+
   <style type="text/css">
     [ng-click] {
   cursor: pointer;
@@ -21,7 +21,7 @@
 
   <title></title>
 
-  
+
 
 <script type='text/javascript'>//<![CDATA[
 
@@ -37,8 +37,13 @@ app.controller('CustomerController', function($scope, $http, $timeout, $modal, $
   $scope.page = 0;
 
   function loadPage(page) {
-	   $http.get("http://localhost:8081", {
-        
+    var authHeader = new Headers();
+
+     authHeader.append('Content-Type', 'application/json');
+
+
+	   $http.get("http://localhost:8083/accenture/Movies", {
+          headers: authHeader
       })
       .then(function(response) {
         console.log(response);
@@ -80,7 +85,7 @@ app.controller('CustomerController', function($scope, $http, $timeout, $modal, $
   <div ng-controller="CustomerController">
     <div class="container">
       <div class="row">
-     
+
         <div ng-repeat="items in results">
           <img ng-click="open(items)" class="col-lg-3 col-md-3 col-sm-3 col-xs-12 thumbnail" ng-src="http://image.tmdb.org/t/p/w342/{{items.poster_path}}">
         </div>
