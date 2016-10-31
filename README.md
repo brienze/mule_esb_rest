@@ -36,7 +36,7 @@ Obs:
        questão de simplicidade.
 
 
-** Exemplos de execução **
+**Exemplos de execução**
 
 - **http://localhost:8083/accenture/GoldMaximum**
 - Response:
