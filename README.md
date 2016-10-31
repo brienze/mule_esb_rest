@@ -7,10 +7,11 @@ Foram implementados 3 conjuntos de API's para os serviços abaixo:
 2 – Utilizando Last.FM API (http://www.last.fm/api/), trazer os detalhes do artista e quando o parâmetro “track” for enviado, trazer os detalhes de cada track. A API deve possuir dois parâmetros “artist” e “track”. O segundo é opcional.
 
 3 -  Através das informações fornecidas pela seguinte API: https://olympic2016.herokuapp.com/api/medal_by_country , retornar:
-     - 5 países com maior número de medalhas de ouro
-     - 5 países com maior número de medalhas de prata
-     - 5 países com maior número de medalhas de bronze
-     - 10 países com maior número de medalhas no total.
+
+      * 5 países com maior número de medalhas de ouro
+      * 5 países com maior número de medalhas de prata
+      * 5 países com maior número de medalhas de bronze
+      * 10 países com maior número de medalhas no total.
      
 
 Pré-Requisito: Deve-se possuir o Anypoint Studio v6.1.2 ou superior instalado.
