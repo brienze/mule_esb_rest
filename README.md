@@ -16,18 +16,19 @@ Foram implementados 3 conjuntos de API's para os serviços abaixo:
 
 Pré-Requisito: Deve-se possuir o Anypoint Studio v6.1.2 ou superior instalado.
 
-* Importar o projeto contido neste repositório no Anypoint Studio;
-* Executar projeto como 'Mule Application';
-* Acessar a página do console em http://localhost:8083/accenture/console/
+     * Importar o projeto contido neste repositório no Anypoint Studio;
+     * Executar projeto como 'Mule Application';
+     * Acessar a página do console em http://localhost:8083/accenture/console/
 
 Os serviços implementados estão descritos na especificação RAML (_accenture_test.raml_) localizado em _src/main/api/
 
 Obs:
 
-* Por questão de simplicidade os serviços foram especificados em apenas um arquivo RAML;
-* O fluxo contém Logs para efeito de depuração, preferi mantêm-los para demonstrar uso dos mesmos;
-* Algumas propriedades foram mantidas em arquivo, tais como o 'numero de paises que possuem o maior numero de medalhas', por exemplo. Ver arquivo mule.properties;
-* Procurei utilizar o numero mínimo possível de programação em java para a solução.
+     * Por questão de simplicidade os serviços foram especificados em apenas um arquivo RAML;
+     * O fluxo contém Logs para efeito de depuração, preferi mantêm-los para demonstrar uso dos mesmos;
+     * Algumas propriedades foram mantidas em arquivo, tais como o 'numero de paises que possuem o maior numero de medalhas',                              
+       por exemplo. Ver arquivo mule.properties;
+     * Procurei utilizar o numero mínimo possível de programação em java para a solução.
 
 
 
