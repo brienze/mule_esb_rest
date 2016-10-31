@@ -38,7 +38,7 @@ Obs:
 
 ** Exemplos de execução **
 
-- ** http://localhost:8083/accenture/GoldMaximum **
+- **http://localhost:8083/accenture/GoldMaximum**
 - Response:
 [
   {
@@ -63,7 +63,7 @@ Obs:
   }
 ]
 
-- ** http://localhost:8083/accenture/BronzeMaximum **
+- **http://localhost:8083/accenture/BronzeMaximum**
 - Reponse:
 [
   {
@@ -88,7 +88,7 @@ Obs:
   }
 ]
 
-- ** http://localhost:8083/accenture/SilverMaximum **
+- **http://localhost:8083/accenture/SilverMaximum**
 - Response:
 [
   {
@@ -113,7 +113,7 @@ Obs:
   }
 ]
 
-- http://localhost:8083/accenture/MedalMaximum
+- **http://localhost:8083/accenture/MedalMaximum**
 - Response:
 [
   {
@@ -158,7 +158,7 @@ Obs:
   }
 ]
 
-- ** http://localhost:8083/accenture/Movies **
+- **http://localhost:8083/accenture/Movies**
   Response:
 [
   {
@@ -223,7 +223,7 @@ Obs:
   }
 ]
 
-- ** http://localhost:8083/accenture/Artist?artist=acdc&track=Highway+to+Hell **
+- **http://localhost:8083/accenture/Artist?artist=acdc&track=Highway+to+Hell**
   Response:
 
 {
@@ -372,7 +372,7 @@ Obs:
   ]
 }
 
-** http://localhost:8083/accenture/Artist?artist=rush**
+**http://localhost:8083/accenture/Artist?artist=rush**
   Response:
 
 {
