@@ -237,7 +237,7 @@ Obs:
     "poster": "/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"
   }
 ]
-
+ 
      http://localhost:8083/accenture/Artist?artist=acdc&track=Highway+to+Hell
      
 - Response:
