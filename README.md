@@ -46,6 +46,7 @@ Obs:
 - **curl -i -H 'content-type: application/json' localhost:8083/accenture/BronzeMaximum**
 - **curl -i -H 'content-type: application/json' localhost:8083/accenture/MedalMaximum**
 
+**Request/Response**
 - **http://localhost:8083/accenture/GoldMaximum**
 - Response:
 [
