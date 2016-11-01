@@ -14,7 +14,7 @@ Foram implementados 3 conjuntos de API's para os serviços abaixo:
       * 10 países com maior número de medalhas no total.
      
 
-**Instalação**
+## **Instalação**
 
 **Pré-Requisito: Deve-se possuir o Anypoint Studio v6.1.2 ou superior instalado.**
 
@@ -36,7 +36,7 @@ Obs:
        questão de simplicidade.
 
 
-**Exemplos de execução**
+## **Exemplos de execução**
 
      - curl -i -H 'content-type: application/json' localhost:8083/accenture/Movies
      - curl -i -H 'content-type: application/json' localhost:8083/accenture/Artist?artist=acdc&track=Highway+to+Hell
