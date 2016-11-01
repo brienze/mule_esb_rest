@@ -1,4 +1,4 @@
-# **Mule ESB -  Publishing and Consuming REST services using RAML**
+# **Mule AnyPoint Studio-  Publishing and Consuming REST services with RAML**
 
 Foram implementados 3 conjuntos de API's para os serviços abaixo:
 
