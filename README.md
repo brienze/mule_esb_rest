@@ -38,13 +38,13 @@ Obs:
 
 **Exemplos de execução**
 
-- **curl -i -H 'content-type: application/json' localhost:8083/accenture/Movies**
-- **curl -i -H 'content-type: application/json' localhost:8083/accenture/Artist?artist=acdc&track=Highway+to+Hell**
-- **curl -i -H 'content-type: application/json' localhost:8083/accenture/Artist?artist=acdc**
-- **curl -i -H 'content-type: application/json' localhost:8083/accenture/GoldMaximum**
-- **curl -i -H 'content-type: application/json' localhost:8083/accenture/SilverMaximum**
-- **curl -i -H 'content-type: application/json' localhost:8083/accenture/BronzeMaximum**
-- **curl -i -H 'content-type: application/json' localhost:8083/accenture/MedalMaximum**
+     - **curl -i -H 'content-type: application/json' localhost:8083/accenture/Movies**
+     - **curl -i -H 'content-type: application/json' localhost:8083/accenture/Artist?artist=acdc&track=Highway+to+Hell**
+     - **curl -i -H 'content-type: application/json' localhost:8083/accenture/Artist?artist=acdc**
+     - **curl -i -H 'content-type: application/json' localhost:8083/accenture/GoldMaximum**
+     - **curl -i -H 'content-type: application/json' localhost:8083/accenture/SilverMaximum**
+     - **curl -i -H 'content-type: application/json' localhost:8083/accenture/BronzeMaximum**
+     - **curl -i -H 'content-type: application/json' localhost:8083/accenture/MedalMaximum**
 
 **Request/Response**
 - **http://localhost:8083/accenture/GoldMaximum**
