@@ -75,6 +75,7 @@ Obs:
 ]
 
      http://localhost:8083/accenture/BronzeMaximum
+     
 - Reponse:
 [
   {
@@ -100,6 +101,7 @@ Obs:
 ]
 
      http://localhost:8083/accenture/SilverMaximum
+     
 - Response:
 [
   {
@@ -125,6 +127,7 @@ Obs:
 ]
 
      http://localhost:8083/accenture/MedalMaximum
+     
 - Response:
 [
   {
@@ -170,6 +173,7 @@ Obs:
 ]
 
      http://localhost:8083/accenture/Movies
+     
 - Response:
 [
   {
@@ -235,6 +239,7 @@ Obs:
 ]
 
      http://localhost:8083/accenture/Artist?artist=acdc&track=Highway+to+Hell
+     
 - Response:
 
 {
@@ -384,6 +389,7 @@ Obs:
 }
 
      http://localhost:8083/accenture/Artist?artist=rush
+     
 - Response:
 
 {
