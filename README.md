@@ -22,7 +22,7 @@ Foram implementados 3 conjuntos de API's para os serviços abaixo:
      * Executar projeto como 'Mule Application';
      * Acessar a página do console em http://localhost:8083/accenture/console/
 
-Os serviços implementados estão descritos na especificação RAML (_accenture_test.raml_) localizado em _src/main/api/
+Os serviços implementados estão descritos na especificação RAML (accenture_test.raml). [Ver aqui: accenture_test.raml](/src/main/api/accenture_test.raml) para mais detalhes.
 
 Obs:
 
