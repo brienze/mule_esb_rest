@@ -38,16 +38,18 @@ Obs:
 
 **Exemplos de execução**
 
-     - **curl -i -H 'content-type: application/json' localhost:8083/accenture/Movies**
-     - **curl -i -H 'content-type: application/json' localhost:8083/accenture/Artist?artist=acdc&track=Highway+to+Hell**
-     - **curl -i -H 'content-type: application/json' localhost:8083/accenture/Artist?artist=acdc**
-     - **curl -i -H 'content-type: application/json' localhost:8083/accenture/GoldMaximum**
-     - **curl -i -H 'content-type: application/json' localhost:8083/accenture/SilverMaximum**
-     - **curl -i -H 'content-type: application/json' localhost:8083/accenture/BronzeMaximum**
-     - **curl -i -H 'content-type: application/json' localhost:8083/accenture/MedalMaximum**
+     - curl -i -H 'content-type: application/json' localhost:8083/accenture/Movies
+     - curl -i -H 'content-type: application/json' localhost:8083/accenture/Artist?artist=acdc&track=Highway+to+Hell
+     - curl -i -H 'content-type: application/json' localhost:8083/accenture/Artist?artist=acdc
+     - curl -i -H 'content-type: application/json' localhost:8083/accenture/GoldMaximum
+     - curl -i -H 'content-type: application/json' localhost:8083/accenture/SilverMaximum
+     - curl -i -H 'content-type: application/json' localhost:8083/accenture/BronzeMaximum
+     - curl -i -H 'content-type: application/json' localhost:8083/accenture/MedalMaximum
 
 **Request/Response**
-- **http://localhost:8083/accenture/GoldMaximum**
+
+     http://localhost:8083/accenture/GoldMaximum
+     
 - Response:
 [
   {
@@ -72,7 +74,7 @@ Obs:
   }
 ]
 
-- **http://localhost:8083/accenture/BronzeMaximum**
+     http://localhost:8083/accenture/BronzeMaximum
 - Reponse:
 [
   {
@@ -97,7 +99,7 @@ Obs:
   }
 ]
 
-- **http://localhost:8083/accenture/SilverMaximum**
+     http://localhost:8083/accenture/SilverMaximum
 - Response:
 [
   {
@@ -122,7 +124,7 @@ Obs:
   }
 ]
 
-- **http://localhost:8083/accenture/MedalMaximum**
+     http://localhost:8083/accenture/MedalMaximum
 - Response:
 [
   {
@@ -167,7 +169,7 @@ Obs:
   }
 ]
 
-- **http://localhost:8083/accenture/Movies**
+     http://localhost:8083/accenture/Movies
 - Response:
 [
   {
@@ -232,7 +234,7 @@ Obs:
   }
 ]
 
-- **http://localhost:8083/accenture/Artist?artist=acdc&track=Highway+to+Hell**
+     http://localhost:8083/accenture/Artist?artist=acdc&track=Highway+to+Hell
 - Response:
 
 {
@@ -381,7 +383,7 @@ Obs:
   ]
 }
 
-**http://localhost:8083/accenture/Artist?artist=rush**
+     http://localhost:8083/accenture/Artist?artist=rush
 - Response:
 
 {
