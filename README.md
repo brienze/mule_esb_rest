@@ -51,6 +51,7 @@ Obs:
      http://localhost:8083/accenture/GoldMaximum
      
 - Response:
+```json
 [
   {
     "country": "United States",
@@ -73,10 +74,12 @@ Obs:
     "medals": 17
   }
 ]
-
+```
      http://localhost:8083/accenture/BronzeMaximum
+
      
 - Reponse:
+```json
 [
   {
     "country": "United States",
@@ -99,10 +102,11 @@ Obs:
     "medals": 17
   }
 ]
-
+```
      http://localhost:8083/accenture/SilverMaximum
      
 - Response:
+```json
 [
   {
     "country": "United States",
@@ -125,10 +129,11 @@ Obs:
     "medals": 18
   }
 ]
-
+```
      http://localhost:8083/accenture/MedalMaximum
      
 - Response:
+```json
 [
   {
     "country": "United States",
@@ -171,10 +176,11 @@ Obs:
     "medals": 22
   }
 ]
-
+```
      http://localhost:8083/accenture/Movies
      
 - Response:
+```json
 [
   {
     "title": "Jack Reacher: Never Go Back",
@@ -237,11 +243,12 @@ Obs:
     "poster": "/jjBgi2r5cRt36xF6iNUEhzscEcb.jpg"
   }
 ]
+ ```
  
      http://localhost:8083/accenture/Artist?artist=acdc&track=Highway+to+Hell
      
 - Response:
-
+```json
 {
   "Artist": [
     {
@@ -387,11 +394,12 @@ Obs:
     }
   ]
 }
+```
 
      http://localhost:8083/accenture/Artist?artist=rush
      
 - Response:
-
+```json
 {
   "artist": {
     "name": "Rush",
@@ -623,7 +631,7 @@ Obs:
     }
   }
 }
-
+```
 
 
 
