@@ -1,7 +1,7 @@
 Configuracaoes para o projeto
 
 Nome do site que disponibiliza API:
-Last.fm
+**Last.fm
 
 Application name	Mule testing
 API key	0e1d44ec9c3257468c003dde772672df
@@ -15,7 +15,7 @@ http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=cher&api_key
 http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=Cher&api_key=0e1d44ec9c3257468c003dde772672df&format=json
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
-MovieDB
+***MovieDB
 
 http://www.last.fm/api/rest
 http://www.last.fm/api/webauth
@@ -33,3 +33,4 @@ https://www.themoviedb.org/account/brienze/api
 https://www.themoviedb.org/documentation/api/discover
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
+** Rio 2016
